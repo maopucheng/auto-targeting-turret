@@ -43,8 +43,8 @@ while True:
 
     # 将RGB模式转换成HSV模式
     ret, img = cap.read()
-    if ret:
-        img = cv2.flip(img, 1)  # 翻转镜像
+    # if ret:
+    #     img = cv2.flip(img, 1)  # 翻转镜像
 
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 

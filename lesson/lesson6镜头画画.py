@@ -6,9 +6,10 @@ cap = cv2.VideoCapture(0)
 
 # Blue Green Yellow
 penColorHSV = [
-    [86, 121, 205, 111, 245, 255],
+    [102, 179, 118, 115, 255, 255],
     [63, 108, 95, 82, 255, 255],
-    [22, 70, 214, 31, 255, 255],
+    [18, 125, 198, 35, 255, 255],
+    # [22, 70, 214, 31, 255, 255],
 ]
 
 penColorBGR = [[255, 0, 0], [0, 255, 0], [0, 255, 255]]
@@ -60,7 +61,7 @@ while True:
     ret, frame = cap.read()
     if ret:
         imgContour = frame.copy()
-        imgContour = cv2.flip(imgContour, 1)  # 翻转镜像
+        # imgContour = cv2.flip(imgContour, 1)  # 翻转镜像
 
         # cv2.imshow('video', frame)
         findPen(frame)

@@ -10,6 +10,10 @@ imgContour = img.copy()
 
 img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 
+# # 先用高斯模糊再用canny会线条更简洁
+# # 高斯模糊，第2个参数，核大小的元组必须都是奇数，第3参数，标准差
+# img = cv2.GaussianBlur(img, (15, 15), 15)
+
 canny = cv2.Canny(img, 150, 200)
 # 2内外轮廓，3是否压缩
 contours, hierarchy = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
