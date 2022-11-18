@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>小车控制</title>
+</head>
+
+<script>
+    function action(direction) {
+        let uin = document.getElementById('input')
+        let url = '/home/' + direction + '_' + uin.value
+        window.location.href = url
+    }
+    function onload() {
+        let path = window.location.pathname.split('/')
+        if (path.length == 3) {
+            let speed = path[2].split('_')
+            if (speed.length == 2) {
+                speed = parseInt(speed[1])
+                let uin = document.getElementById('input')
+                uin.value = '' + speed
+            }
+        }
+    }
+</script>
+
+<body onload="onload()">
+    <h2>小车控制</h2>
+    <form action="demo_form.php">
+        速度(0-100): <input type="text" id="input" value="20">
+    </form>
+    <button onclick='action("forw")'>向前</button><br>
+    <button onclick='action("back")'>向后</button><br>
+    <button onclick='action("left")'>向左</button><br>
+    <button onclick='action("right")'>向右</button><br>
+    <button onclick='action("stop")'>停止</button><br>
+</body>
+
+</html>
