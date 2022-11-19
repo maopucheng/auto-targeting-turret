@@ -18,7 +18,7 @@ while True:
     )
     img2 = img.copy()
     # 寻找身体
-    img = detector.findPose(img)
+    img2 = detector.findPose(img)
     lmList, bboxInfo = detector.findPosition(img, bboxWithHands=False)
     if bboxInfo:
         # bboxInfo - "id","bbox","score","center"

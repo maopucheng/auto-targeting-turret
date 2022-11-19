@@ -1,0 +1,30 @@
+SerialConnectWidget{
+    border: 1px solid rgb(254, 222, 195);
+    border-radius: 5px;
+    /*height: 80px;*/
+}
+
+SerialConnectWidget > QLabel{
+    font-size: 16px;
+}
+
+SerialConnectWidget > QComboBox {
+    font-size: 16px;
+    width: 100%;
+}
+
+
+CameraConnectWidget{
+    border: 1px solid rgb(254, 222, 195);
+    border-radius: 5px;
+}
+
+CameraConnectWidget > QLabel{
+    font-size: 16px;
+}
+
+CameraConnectWidget > QComboBox{
+    font-size: 16px;
+    width: 100%;
+}
+

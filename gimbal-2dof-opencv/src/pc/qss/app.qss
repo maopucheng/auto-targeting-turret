@@ -1,0 +1,15 @@
+QPushButton{
+    background-color: transparent;
+    border:none;
+    /*padding-left: -3px;*/
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+AppIconWidget{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background-color: transparent;
+    border:none;
+}
+

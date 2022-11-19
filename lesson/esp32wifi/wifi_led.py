@@ -67,5 +67,6 @@ while True:
     else:
         print("no request string")
 
+
 conn.close()
 print("connection closed!")

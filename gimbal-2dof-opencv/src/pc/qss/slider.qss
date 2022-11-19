@@ -1,0 +1,40 @@
+KSlider{
+    width: 150px;
+    height: 12px;
+}
+/*滑动条的样式文件*/
+KSlider::groove::horizontal{
+    /*滑动条的外边框*/
+    /* border-width: 3px solid QColor(0, 0, 0);
+    border-image: url(icon/slider-groove.png) 0 0 0 0 stretch stretch;
+    border-radius: 0px; */
+    background-color: rgb(254, 222, 195);
+    left:0px;
+    right:0px;
+    width: 150px;
+    height: 12px;
+    margin: 0px 0;
+}
+
+KSlider::handle
+{
+    background: transparent;
+    border: none;
+    width: 30px;
+    height: 30px; 
+    border-radius: 0px;
+    
+}
+
+KSlider::sub-page::horizontal{
+
+    /*border-width: 3px;*/
+    /*border-image: url(icon/slider-sub-image.png) 0 0 0 0 stretch stretch;*/
+    /*border-radius: 0px;*/
+    background-color: rgb(249, 145, 52);
+    left: 60px;
+    right:0px;
+    width: 150px;
+    height: 12px;
+    margin: 0px 0;
+}

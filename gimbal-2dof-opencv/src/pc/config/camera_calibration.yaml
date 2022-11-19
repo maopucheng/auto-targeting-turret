@@ -1,0 +1,8 @@
+#############################
+## 相机标定的参数
+#############################
+caliboard : # 标定板
+  row : 8 # 行数
+  column : 8 # 列数
+cali_img_source_path: 'data/caliboard' # 标定图像的存储路径
+cali_info_save_path : 'config/camera_info.bin' # 相机标定信息存储路径

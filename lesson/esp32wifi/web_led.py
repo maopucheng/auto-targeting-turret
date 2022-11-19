@@ -1,10 +1,10 @@
 import socket
 import utime
 import network
+import _thread
 from machine import Pin
-import uasyncio
-from microdot_asyncio import Microdot
-from microdot_utemplate import render_template
+from lib.microdot_asyncio import Microdot, Response
+from lib.microdot_utemplate import render_template
 
 SSID = "dou_home"
 PASSWORD = "chinaaaa"
@@ -38,11 +38,20 @@ ip = sta_if.ifconfig()[0]
 
 # setup webserver
 app = Microdot()
+Response.default_content_type = 'text/html'
 
 
 @app.route('/')
 async def hello(request):
-    return render_template('index.html',hhh=)
+    return render_template('index.html', status="let's start!")
+
+
+def flash_led():
+    for i in range(50):
+        led.value(0)
+        utime.sleep(0.05)
+        led.value(1)
+        utime.sleep(0.05)
 
 
 @app.route('/light')
@@ -52,14 +61,18 @@ async def light(request):
         if request.args['switch'] == 'on':
             led.value(0)
             print('on')
-            return 'led on'
+            return render_template('index.html', status="ON")
         elif request.args['switch'] == 'off':
             led.value(1)
             print('off')
-            return 'led off'
+            return render_template('index.html', status="OFF")
+        elif request.args['switch'] == 'flash':
+            print('flash')
+            _thread.start_new_thread(flash_led, ())
+            return render_template('index.html', status="Flash")
         else:
             print('nothing')
-            return 'nothing happened'
+
     except Exception as err:
         print(err)
         return '[ERROR] ' + str(err)
@@ -71,7 +84,7 @@ def start_server():
         app.run(port=80)
     except:
         app.shutdown()
-        print('Starting failed!')
+        print('Shutdown!')
 
 
 start_server()

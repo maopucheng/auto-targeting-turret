@@ -1,0 +1,85 @@
+/*舵机控制面板的QSS样式文件*/
+UServoListWidget{
+    border-image:url(icon/servo-control-background.png);
+    padding-top: 100px;
+}
+
+UServoWidget#servo0{
+    border-image:url(icon/ID=0.png);
+    /* border-radius:5px; */
+    /* border: 1px solid rgb(45, 45, 45); */
+}
+
+UServoWidget#servo1{
+    border-image:url(icon/ID=1.png);
+    /* border-radius:5px; */
+    /* border: 1px solid rgb(45, 45, 45); */
+}
+
+
+UServoWidget{
+    border: 1px solid rgb(45, 45, 45);
+}
+
+
+QLabel{
+    font-size: 11pt;
+}
+
+/*QPushButton::menu-indicator{*/
+QPushButton{
+    border:none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+QComboBox{
+    font-size: 11pt;
+    padding-left:5px;
+    padding-right:5px;
+    background-color: rgb(254, 222, 195);
+    border: 1px solid rgb(77, 77, 77);
+}
+
+QComboBox::drop-down{
+    border:none;
+    border-image:url(icon/combobox_btn.png);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+
+QDoubleSpinBox{
+    font-size: 11pt;
+    background-color: rgb(254, 222, 195);
+    border: 1px solid rgb(77, 77, 255);
+}
+
+QDoubleSpinBox::up-button, QDoubleSpinBox::down-button{
+  /* border:none; */
+  padding: 0px 0px 0px 0px;
+  margin: 3px 3px 3px 3px;
+  /* border: 1px solid rgb(77, 77, 77);*/
+} 
+
+QDoubleSpinBox::up-button{
+    border-image:url(icon/spinbox_up.png);
+
+}
+
+QDoubleSpinBox::down-button{
+    border-image:url(icon/spinbox_down.png);
+}
+
+KSlider{
+    /* border: 1px solid rgb(255, 77, 77); */
+    width: 150px;
+}
+
+/*border-image:url()*/
+
+
+
+

@@ -34,6 +34,8 @@ while True:
             print("不许说脏话！")
         elif fingers1[1:5] == [1, 1, 0, 0]:
             print("你赢了！")
+        elif fingers1 == [1, 1, 1, 1, 1]:
+            print("我出包子！")
 
         #     # Find Distance between two Landmarks. Could be same hand or different hands
         #     length, info, img = detector.findDistance(

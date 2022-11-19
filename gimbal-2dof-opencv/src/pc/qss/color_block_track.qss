@@ -1,0 +1,8 @@
+/*色块跟踪样式文件*/
+QPushButton{
+    background-color: transparent;
+    border:none;
+    /*padding-left: -3px;*/
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px -3px;
+}

@@ -1,0 +1,27 @@
+QPushButton{
+    background-color: transparent;
+    border:none;
+    /*padding-left: -3px;*/
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px -3px;
+}
+
+QLabel{
+    /*padding: 5px 5px 5px 5px;*/
+    /*padding-left: 3px;*/
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background-color: transparent;
+    border:none;
+    /*
+    right: 0px;
+    top: -2px;
+    */
+}
+
+QGroupBox{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
