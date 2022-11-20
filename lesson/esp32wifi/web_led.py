@@ -6,8 +6,8 @@ from machine import Pin
 from lib.microdot_asyncio import Microdot, Response
 from lib.microdot_utemplate import render_template
 
-SSID = "dou_home"
-PASSWORD = "chinaaaa"
+SSID = "codemao"
+PASSWORD = "82221515"
 led = Pin(22, Pin.OUT)
 
 
