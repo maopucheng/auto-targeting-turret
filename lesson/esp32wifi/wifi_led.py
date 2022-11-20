@@ -34,14 +34,14 @@ sta_if = network.WLAN(network.STA_IF)
 do_connect()
 ip = sta_if.ifconfig()[0]
 
-port = 80
+port = 1080
 
 webserver = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 创建套接字
 webserver.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # 设置给定套接字选项的值
 # webserver.settimeout(2000)
 webserver.bind((ip, port))  # 绑定IP地址和端口号
 webserver.listen(5)  # 监听套接字
-print("服务器地址:%s:%d" % (ip, port))
+print("Socks服务器地址:%s:%d" % (ip, port))
 
 conn, addr = webserver.accept()  # 接受一个连接，conn是一个新的socket对象
 
