@@ -8,15 +8,36 @@ import mtools
 
 def target_position(keyList, target="heart"):
 
-    target_pos = (200, 200)
+    target_pos = (0, 0)
     if target == "heart":
         # 设置瞄准点在胸部位置
         # 11，12，肩膀2个点，23，24为臀部外侧2个点
-        pass
+        shoulder_mid = (
+            (keyList[11][1] + keyList[12][1]) / 2,
+            (keyList[11][2] + keyList[12][2]) / 2,
+        )
+        hip_mid = (
+            (keyList[23][1] + keyList[24][1]) / 2,
+            (keyList[23][2] + keyList[24][2]) / 2,
+        )
+        heart_pos = (
+            int(shoulder_mid[0] + (hip_mid[0] - shoulder_mid[0]) * 0.2),
+            int(shoulder_mid[1] + (hip_mid[1] - shoulder_mid[1]) * 0.2),
+        )
+        target_pos = heart_pos
     elif target == "head":
         # 设置为眉心
         # 0 为鼻子，2，5为右左眼睛
-        pass
+        nose = keyList[0][1:3]
+        eye_mid = (
+            int((keyList[2][1] + keyList[5][1]) / 2),
+            int((keyList[2][2] + keyList[5][2]) / 2),
+        )
+        brow_mid = (
+            int(eye_mid[0] - (nose[0] - eye_mid[0]) * 1.5),
+            int(eye_mid[1] - (nose[1] - eye_mid[1]) * 1.5),
+        )
+        target_pos = brow_mid
     return target_pos
 
 
@@ -87,7 +108,7 @@ def set_servo_angle(down, up):
 
 
 fpsReader = cvzone.FPS()
-detector = PoseDetector()
+detector = PoseDetector(complexity=0)
 cap = cv2.VideoCapture(0)
 pose_dict = {}
 
@@ -124,7 +145,7 @@ while True:
     cv2.imshow("Result", img)
 
     # 按q退出
-    if cv2.waitKey(100) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 cap.release()
