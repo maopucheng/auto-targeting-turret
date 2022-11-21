@@ -16,7 +16,6 @@ while True:
     if bboxs:
         # bboxInfo - "id","bbox","score","center"
         center = bboxs[0]["center"]
-        center = (10, 10)
         cv2.circle(img, center, 5, (255, 0, 255), cv2.FILLED)
 
     cv2.imshow("Image", img)
