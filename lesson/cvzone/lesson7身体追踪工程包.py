@@ -138,7 +138,7 @@ while True:
     img = detector.findPose(img)
     lmList, bboxInfo = detector.findPosition(img, bboxWithHands=False)
     if bboxInfo:
-        aim_center = target_position(lmList, "head")
+        aim_center = target_position(lmList, "heart")
         calc_servo_angle(aim_center)
         draw_target_center(img, aim_center)
 

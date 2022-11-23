@@ -61,6 +61,8 @@ while True:
             led.value(1)
             conn.send("yes,sir! off!")
             print("light off")
+        elif request == "shutdown":
+            break
         else:
             conn.send("nothing happened!")
             print("light not change")

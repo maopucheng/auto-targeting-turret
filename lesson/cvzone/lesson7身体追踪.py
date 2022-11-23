@@ -145,7 +145,7 @@ def main():
 
 # 启动一个socket，发送socket
 def send_servo_angle(angle_down, angle_up):
-    send_data = str(angle_down) + ' ' + str(angle_up) + '\n'
+    send_data = str(angle_down) + ',' + str(angle_up) + '\n'
     print("send data: " + send_data)
     skt.send(send_data.encode())
 
