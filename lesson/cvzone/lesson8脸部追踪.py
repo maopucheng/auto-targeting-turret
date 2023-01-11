@@ -3,9 +3,13 @@ import cv2
 import cvzone
 
 fpsReader = cvzone.FPS()
-cap = cv2.VideoCapture(0)
-detector = FaceDetector()
+cap = cv2.VideoCapture(1)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1080)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
+detector = FaceDetector()
+success, img = cap.read()
+print(img.shape)
 while True:
     success, img = cap.read()
     fps, img = fpsReader.update(

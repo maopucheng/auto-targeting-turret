@@ -109,7 +109,7 @@ def set_servo_angle(down, up):
 
 fpsReader = cvzone.FPS()
 detector = PoseDetector(complexity=0)
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 pose_dict = {}
 
 # 取得视频分辨率
