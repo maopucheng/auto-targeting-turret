@@ -68,7 +68,7 @@ def calc_servo_angle(aim_center):
     px, py = aim_center
 
     # 设置死区，在此范围内，不动作
-    deadarea = 0.15
+    deadarea = 0.2
 
     # 比例系数，需要测试
     k_down = 8
@@ -145,7 +145,7 @@ def main():
 
 # 启动一个socket，发送socket
 def send_servo_angle(angle_down, angle_up):
-    send_data = str(angle_down) + ',' + str(angle_up) + '\n'
+    send_data = str(angle_down) + ',' + str(angle_up) + '#'
     print("send data: " + send_data)
     skt.send(send_data.encode())
 
@@ -153,7 +153,7 @@ def send_servo_angle(angle_down, angle_up):
 if __name__ == "__main__":
 
     # 设置执行器的地址和端口，一般是个元组
-    ip = ('192.168.1.168', 1080)
+    ip = ('192.168.1.151', 1080)
 
     # 初始化一个socket客户端
     skt = socket.socket()
@@ -167,7 +167,7 @@ if __name__ == "__main__":
         exit()
 
     # 初始化视频流
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
 
     # 记录舵机云台位置,设置默认角度
     angle_down = 90  # 水平
