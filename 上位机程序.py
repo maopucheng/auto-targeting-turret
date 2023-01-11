@@ -3,6 +3,7 @@ from cvzone.PoseModule import PoseDetector
 from cvzone import FPS
 import socket
 import mtools
+import time
 
 
 def target_position(keyList, target="heart"):
@@ -68,11 +69,11 @@ def calc_servo_angle(aim_center):
     px, py = aim_center
 
     # 设置死区，在此范围内，不动作
-    deadarea = 0.2
+    deadarea = 0.15
 
     # 比例系数，需要测试
-    k_down = 8
-    k_up = 6
+    k_down = 6
+    k_up = 4
     # 归一化 偏移量 [-1, 1]
     offset_x = 2.0 * (px / width - 0.5)
     offset_y = 2.0 * (py / height - 0.5)
@@ -86,17 +87,21 @@ def calc_servo_angle(aim_center):
             angle_down = 180
 
     if abs(offset_y) > deadarea:
-        # 更新上舵机的PID，设置仰角90-150
-        angle_up += int(k_up * offset_y)
-        if angle_up < 90:
-            angle_up = 90
-        elif angle_up > 150:
-            angle_up = 150
+        # 更新上舵机的PID，设置仰角80-160
+        # 注意，这里用了-号，因为图像左右镜像过，所以正负需要颠倒。
+        angle_up -= int(k_up * offset_y)
+        if angle_up < 80:
+            angle_up = 80
+        elif angle_up > 160:
+            angle_up = 160
 
-    # 返回舵机角度
+    # # 返回舵机角度
     # print(
     #     "{:.2f},{:.2f},{:.0f},{:.0f}".format(offset_x, offset_y, angle_down, angle_up)
     # )
+
+    time.sleep(0.01)
+
     return (angle_down, angle_up)
 
 
@@ -128,7 +133,7 @@ def main():
 
         # 寻找身体，检测位置
         img = detector.findPose(img)
-        lmList, bboxInfo = detector.findPosition(img, bboxWithHands=False)
+        lmList, bboxInfo = detector.findPosition(img, bboxWithHands=False, draw=True)
         if bboxInfo:
             aim_center = target_position(lmList, "head")
             draw_target_center(img, aim_center)
@@ -171,7 +176,7 @@ if __name__ == "__main__":
 
     # 记录舵机云台位置,设置默认角度
     angle_down = 90  # 水平
-    angle_up = 120  # 仰角
+    angle_up = 100  # 仰角
 
     # 视频的尺寸初始化
     width = 640
