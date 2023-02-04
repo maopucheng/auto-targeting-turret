@@ -4,8 +4,8 @@ import network
 from machine import Pin
 
 
-SSID = "MT"
-PASSWORD = "87654321"
+SSID = "dou_mi"
+PASSWORD = "bcm123456"
 led = Pin(22, Pin.OUT)
 
 
