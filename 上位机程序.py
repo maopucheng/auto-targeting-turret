@@ -158,7 +158,7 @@ def send_servo_angle(angle_down, angle_up):
 if __name__ == "__main__":
 
     # 设置执行器的地址和端口，一般是个元组
-    ip = ('192.168.1.51', 1080)
+    ip = ('192.168.31.182', 1080)
 
     # 初始化一个socket客户端
     skt = socket.socket()
@@ -172,7 +172,7 @@ if __name__ == "__main__":
         exit()
 
     # 初始化视频流
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
 
     # 记录舵机云台位置,设置默认角度
     angle_down = 90  # 水平

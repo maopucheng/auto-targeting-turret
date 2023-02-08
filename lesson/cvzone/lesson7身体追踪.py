@@ -153,7 +153,7 @@ def send_servo_angle(angle_down, angle_up):
 if __name__ == "__main__":
 
     # 设置执行器的地址和端口，一般是个元组
-    ip = ('192.168.1.51', 1080)
+    ip = ('192.168.31.51', 1080)
 
     # 初始化一个socket客户端
     skt = socket.socket()

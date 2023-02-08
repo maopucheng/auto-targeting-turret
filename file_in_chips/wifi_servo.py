@@ -5,8 +5,8 @@ from machine import Pin
 from servo import Servo
 
 led = Pin(2, Pin.OUT)
-# 可用引脚由下往上为 25, 33, 32
-bottom = 33
+# 可用引脚由下往上为 22, 32, 25
+bottom = 22
 upper = 32
 Servo = Servo()
 Servo.angle(90, bottom)
@@ -14,8 +14,8 @@ utime.sleep(1)
 Servo.angle(100, upper)
 utime.sleep(1)
 
-SSID = "dou_home"
-PASSWORD = "chinaaaa"
+SSID = "dou_mi"
+PASSWORD = "bcm123456"
 
 # f = open('error.log', mode='at')
 # f.write("-------start--------\n")
